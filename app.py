@@ -41,7 +41,7 @@ def clear_database():
 
 with st.container():
         st.header("grAIde")
-        st.subheader("Hello, this is a colour grading engine that uses AI to match the colour grade of any picture or video :) :camera:")
+        st.subheader("Hello, this is a colour grading engine that uses AI to match the colour grade of any picture or video. By Michael. :) :camera:")
         st.write("[Learn More > ] (https://github.com/MichaelRice1)")
 
 with st.container():
