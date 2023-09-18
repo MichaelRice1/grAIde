@@ -42,7 +42,7 @@ with st.container():
         resize_logo = logo.resize([350,150])
         st.image(resize_logo)
     with navmenu_column:
-        page = st.selectbox("", ("Home", "About","Samples", "Photo Grading","Video Grading"))
+        page = st.selectbox("", ("Home", "About","Samples", "Photo Colour Matching","Video Colour Matching","Text to Grade"))
        
 if page == "Home":
     st.write("a side project by a 4th Year Computer Engineering Student.")
@@ -91,7 +91,7 @@ if page == "Samples":
             st.image(resized_image3)
 
 
-if page == "Photo Grading":
+if page == "Photo Colour Matching":
     with st.container():
             st.write("-----")
             files_column, imgs_column, button_column = st.columns(3)
@@ -122,7 +122,7 @@ if page == "Photo Grading":
                         img = Image.open(BytesIO(img_data))
                         st.image(img, caption=f"Image ID: {image_id}", use_column_width=True)
                 
-if page == "Video Grading":
+if page == "Video Colour Matching":
      with st.container():
             st.write("-----")
             files_column, vids_column, button_column = st.columns(3)
@@ -136,4 +136,19 @@ if page == "Video Grading":
                     st.warning("Please upload a video")
             with button_column:
                 grAIde_vids_button = st.button("Press to grAIde.")
-                 
+
+if page == "Text to Grade":
+    with st.container():
+            text_column, files_column2 = st.columns(2)
+            with text_column:
+                st.header("Input Text Here to Apply to Photo or Video")
+                user_input = st.text_input("Enter your text here:", "")
+            with files_column2:
+                st.header("Upload images for Colour Grading Here")
+                uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg","mp4","mov"])
+    
+    with st.container():
+        if uploaded_file:
+            st.image(uploaded_file)
+            #add functionality for videos here    
+
