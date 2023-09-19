@@ -35,7 +35,7 @@ def clear_database():
     conn.close()
     # Close the database connection
     
-
+#always appearing things
 with st.container():
     logo_column, navmenu_column = st.columns(2)
     with logo_column:
@@ -46,27 +46,41 @@ with st.container():
        
 if page == "Home":
     st.write("a side project by a 4th Year Computer Engineering Student.")
+    st.write("    - I decided to attempt this project due to a multitude of reasons. ")
+    st.write("    - Firstly, my inability to learn how to properly colour grade.")
+    st.write("    - Secondly, my passion for innovative projects.")
+    st.write("    - Thirdly, my enthusiasm for all things photography and cinematography.")
+    st.write("    - Lastly, I also do not want to pay for other commercial AI engines.")
+
 
 if page == "About":
     with st.container():
-            st.subheader("A colour grading engine using AI to match the colour grade of any picture or video. By Michael  :)")
+            st.subheader("A colour grading engine using AI to match the colour grade of any picture or video.")
             st.write("[Learn More > ] (https://github.com/MichaelRice1)")
     with st.container():
         st.write("---")
         left_column, right_column = st.columns(2)
         with left_column:
-            st.header("What The Engine Can Do ")
+            st.subheader("What The Engine Can Do ")
             st.write("##")
             st.write(
                 """
-                - Match the colour grade of any video or image and apply it to any provided image.
-                - Take text input and apply the instructions to the provided image.
-                - Give you the altered image back.
+                - Match the colour grade of any video or image and apply it to any provided input file.
+                - Take text input and apply the instructions to any provided input file.
+
+                """
+            )
+            st.subheader("The Technology Used to Complete the Project")
+            st.write(
+                """
+                - Python Streamlit Library used to create the frontend. 
+                - Python ML Algorithm used in the backend.
 
                 """
             )
         with right_column:
-            st.image(img_cam)
+            resize_cam = img_cam.resize([550,550])
+            st.image(resize_cam)
 
 if page == "Samples":
     with st.container():
