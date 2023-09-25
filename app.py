@@ -37,14 +37,19 @@ def clear_database():
     
 #always appearing things
 with st.container():
+    #two columns, one for the main logo, one for the navmenu
     logo_column, navmenu_column = st.columns(2)
+    #the column for the logo
     with logo_column:
         resize_logo = logo.resize([350,150])
         st.image(resize_logo)
+    #the column for the for the selection box
     with navmenu_column:
         page = st.selectbox("", ("Home", "About","Samples", "Photo Colour Matching","Video Colour Matching","Text to Grade"))
-       
+
+#home page   
 if page == "Home":
+    #defining the reasons for completing the project
     st.write("a side project by a 4th Year Computer Engineering Student.")
     st.write("    - I decided to attempt this project due to a multitude of reasons. ")
     st.write("    - Firstly, my inability to learn how to properly colour grade.")
@@ -52,7 +57,7 @@ if page == "Home":
     st.write("    - Thirdly, my enthusiasm for all things photography and cinematography.")
     st.write("    - Lastly, I also do not want to pay for other commercial AI engines.")
 
-
+#about page
 if page == "About":
     with st.container():
             st.subheader("A colour grading engine using AI to match the colour grade of any picture or video.")
@@ -82,7 +87,9 @@ if page == "About":
             resize_cam = img_cam.resize([550,550])
             st.image(resize_cam)
 
+#sample pictures page
 if page == "Samples":
+
     with st.container():
         st.write("---")
         st.header("Examples")
@@ -104,7 +111,7 @@ if page == "Samples":
             resized_image3 = after2.resize(after1.size)
             st.image(resized_image3)
 
-
+#photo editing page
 if page == "Photo Colour Matching":
     with st.container():
             st.write("-----")
@@ -136,6 +143,7 @@ if page == "Photo Colour Matching":
                         img = Image.open(BytesIO(img_data))
                         st.image(img, caption=f"Image ID: {image_id}", use_column_width=True)
                 
+#video editing page                
 if page == "Video Colour Matching":
      with st.container():
             st.write("-----")
@@ -151,6 +159,7 @@ if page == "Video Colour Matching":
             with button_column:
                 grAIde_vids_button = st.button("Press to grAIde.")
 
+#text to grade page
 if page == "Text to Grade":
     with st.container():
             text_column, files_column2 = st.columns(2)
