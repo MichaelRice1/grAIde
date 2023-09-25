@@ -2,9 +2,19 @@ import streamlit as st
 from PIL import Image
 import sqlite3
 from io import BytesIO
+import color_matcher as cm
+import tensorflow as tf
+import os
+
+
+
+os.environ['TFHUB_MODEL_LOAD_FORMAT'] = 'COMPRESSED'
 
 
 st.set_page_config(page_title="grAIde", page_icon=":camera:", layout = "wide")
+vgg19 = tf.keras.applications.VGG19(include_top=False, weights='imagenet')
+
+
 
 before1 = Image.open("images/before1.png")
 target1 = Image.open("images/target1.png")
